@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-primary: #bc000a;
+  --color-background: #fff8f7;
+  --color-surface: #fff8f7;
+  --color-surface-dim: #f4d3ce;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fff0ee;
+  --color-surface-container: #ffe9e6;
+  --color-surface-container-high: #ffe2dd;
+  --color-surface-container-highest: #fcdbd6;
+  
+  --color-on-surface: #291715;
+  --color-on-surface-variant: #5d3f3b;
+  
+  --radius-ios: 20px;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+}
+
+@utility ios-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@utility floating-nav {
+  position: fixed;
+  bottom: 32px;
+  left: 24px;
+  right: 24px;
+  z-index: 50;
+  border-radius: 9999px;
+  @apply ios-blur;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+}
